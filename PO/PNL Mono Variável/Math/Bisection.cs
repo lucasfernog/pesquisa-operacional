@@ -23,9 +23,7 @@ namespace PNL_Mono_Variável.Math
             double derivativeTolerance = tolerance / 1000000;
 
             int k = 0;
-            //TODO
-            int maxIt = (int) System.Math.Ceiling((System.Math.Log(tolerance) - System.Math.Log(System.Math.Abs(b - a))) / System.Math.Log(1/2));
-            maxIt = 100;
+            int maxIt = (int) System.Math.Ceiling(System.Math.Log(tolerance / (b - a), 0.5));
 
             do
             {
