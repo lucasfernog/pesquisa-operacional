@@ -39,6 +39,14 @@ namespace PNL_Mono_Variável.Response
 
                 dgvSteps.DataSource = steps;
             }
+            else if (Response.Steps[0] is NewtonStep)
+            {
+                List<NewtonStep> steps = new List<NewtonStep>();
+                foreach (Step step in Response.Steps)
+                    steps.Add((NewtonStep) step);
+
+                dgvSteps.DataSource = steps;
+            }
 
             dgvSteps.AutoGenerateColumns = true;
 

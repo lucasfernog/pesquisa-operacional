@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Math\Newton.cs" />
+    <Compile Include="Math\NewtonStep.cs" />
     <Compile Include="Math\Step.cs" />
     <Compile Include="Math\StepX.cs" />
     <Compile Include="Response\frmResponse.cs">

@@ -35,9 +35,35 @@ namespace PNL_Mono_Variável
                 MessageBox.Show("Informe a tolerância ε");
             else
             {
-                double a = double.Parse(txtA.Text.Replace(".", ","));
-                double b = double.Parse(txtB.Text.Replace(".", ","));
-                double tolerance = double.Parse(txtEpsilon.Text.Replace(".", ","));
+                double a, b, tolerance;
+                Expression expression = new Expression(txtA.Text.Replace(",", "."));
+                if (!expression.checkSyntax())
+                {
+                    MessageBox.Show(expression.getErrorMessage());
+                    return;
+                }
+                else
+                {
+                    a = expression.calculate();
+                    expression = new Expression(txtB.Text.Replace(",", "."));
+                    if (!expression.checkSyntax())
+                    {
+                        MessageBox.Show(expression.getErrorMessage());
+                        return;
+                    }
+                    else
+                    {
+                        b = expression.calculate();
+                        expression = new Expression(txtEpsilon.Text.Replace(",", "."));
+                        if (!expression.checkSyntax())
+                        {
+                            MessageBox.Show(expression.getErrorMessage());
+                            return;
+                        }
+                        else
+                            tolerance = expression.calculate();
+                    }
+                }
 
                 if (a > b)
                 {
@@ -49,17 +75,28 @@ namespace PNL_Mono_Variável
                 try
                 {
                     Math.Response response = null;
+                    String function = txtFunction.Text;
+
                     if (rdbGoldenSection.Checked)
                     {
-                        response = GoldenSection.eval(txtFunction.Text, a, b, tolerance);
+                        response = GoldenSection.eval(function, a, b, tolerance);
                     }
                     else if (rdbFibonacciSearch.Checked)
                     {
-                        response = FibonacciSearch.eval(txtFunction.Text, a, b, tolerance);
+                        response = FibonacciSearch.eval(function, a, b, tolerance);
                     }
                     else if (rdbBisection.Checked)
                     {
-                        response = Bisection.eval(txtFunction.Text, a, b, tolerance);
+                        response = Bisection.eval(function, a, b, tolerance);
+                    }
+                    else if (rdbNewton.Checked)
+                    {
+                        response = Newton.eval(function, a, b, tolerance);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Selecione um método.");
+                        return;
                     }
 
                     frmResponse frmResponse = new frmResponse();
