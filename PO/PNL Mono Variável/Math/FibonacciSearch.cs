@@ -28,9 +28,9 @@ namespace PNL_Mono_Variável.Math
             return fibonacci;
         }
 
-        public static Response eval(String function, double a, double b, double tolerance)
+        public static Response<StepAB> eval(String function, double a, double b, double tolerance)
         {
-            Response response = new Response();
+            Response<StepAB> response = new Response<StepAB>();
             
             Expression expression = new Expression(function);
             expression.defineArgument(VARIABLE, 0); //definir variável apenas para ser reconhecida pelo checkSyntax

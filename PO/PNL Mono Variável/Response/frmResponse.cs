@@ -7,7 +7,7 @@ namespace PNL_Mono_Variável.Response
 {
     public partial class frmResponse : Form
     {
-        public Math.Response Response { get; set; }
+        public IResponse Response { get; set; }
 
         public frmResponse()
         {
@@ -19,50 +19,29 @@ namespace PNL_Mono_Variável.Response
             txtX.Text = Response.X.ToString();
             txtFx.Text = Response.FunctionValue.ToString();
 
-            if (Response.Steps.Count == 0)
+            if (Response.StepsCount == 0)
             {
                 dgvSteps.Visible = false;
             }
-            else if (Response.Steps[0] is StepAB)
+            else
             {
-                List<StepAB> steps = new List<StepAB>();
-                foreach (Step step in Response.Steps)
-                    steps.Add((StepAB) step);
+                dgvSteps.DataSource = Response.StepsList;
+                dgvSteps.AutoGenerateColumns = true;
 
-                dgvSteps.DataSource = steps;
-            }
-            else if (Response.Steps[0] is StepX)
-            {
-                List<StepX> steps = new List<StepX>();
-                foreach (Step step in Response.Steps)
-                    steps.Add((StepX) step);
-
-                dgvSteps.DataSource = steps;
-            }
-            else if (Response.Steps[0] is NewtonStep)
-            {
-                List<NewtonStep> steps = new List<NewtonStep>();
-                foreach (Step step in Response.Steps)
-                    steps.Add((NewtonStep) step);
-
-                dgvSteps.DataSource = steps;
-            }
-
-            dgvSteps.AutoGenerateColumns = true;
-
-            foreach (DataGridViewColumn column in dgvSteps.Columns)
-            {
-                column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
-                if (column.DataPropertyName == "K")
+                foreach (DataGridViewColumn column in dgvSteps.Columns)
                 {
-                    column.DisplayIndex = 0;
-                    column.DefaultCellStyle.Format = "N0";
-                }
-                else
-                {
-                    column.DefaultCellStyle.Format = "N4";
+                    column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                    if (column.DataPropertyName == "K")
+                    {
+                        column.DisplayIndex = 0;
+                        column.DefaultCellStyle.Format = "N0";
+                    }
+                    else
+                    {
+                        column.DefaultCellStyle.Format = "N4";
+                    }
                 }
             }
         }

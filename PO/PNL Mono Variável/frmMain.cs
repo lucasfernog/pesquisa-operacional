@@ -74,7 +74,7 @@ namespace PNL_Mono_Variável
 
                 try
                 {
-                    Math.Response response = null;
+                    IResponse response = null;
                     String function = txtFunction.Text;
 
                     if (rdbGoldenSection.Checked)
@@ -98,7 +98,7 @@ namespace PNL_Mono_Variável
                         MessageBox.Show("Selecione um método.");
                         return;
                     }
-
+                    
                     frmResponse frmResponse = new frmResponse();
                     frmResponse.Response = response;
                     frmResponse.ShowDialog();

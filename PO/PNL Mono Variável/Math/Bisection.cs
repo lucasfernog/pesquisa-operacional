@@ -6,9 +6,9 @@ namespace PNL_Mono_Variável.Math
     {
         private static readonly string VARIABLE = "x";
 
-        public static Response eval(String function, double a, double b, double tolerance)
+        public static Response<StepX> eval(String function, double a, double b, double tolerance)
         {
-            Response response = new Response();
+            Response<StepX> response = new Response<StepX>();
 
             Expression expression = new Expression(function);
             expression.defineArgument(VARIABLE, 0); //definir variável apenas para ser reconhecida pelo checkSyntax

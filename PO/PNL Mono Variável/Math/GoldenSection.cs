@@ -9,9 +9,9 @@ namespace PNL_Mono_Variável.Math
         private static readonly double GOLDEN_SECTION_NUMBER = (System.Math.Sqrt(5) - 1) / 2;
         private static readonly double ONE_MINUS_GOLDEN_SECTION_NUMBER = 1 - GOLDEN_SECTION_NUMBER;
         
-        public static Response eval(String function, double a, double b, double tolerance)
+        public static Response<StepAB> eval(String function, double a, double b, double tolerance)
         {
-            Response response = new Response();
+            Response<StepAB> response = new Response<StepAB>();
 
             Expression expression = new Expression(function);
             expression.defineArgument(VARIABLE, 0); //definir variável apenas para ser reconhecida pelo checkSyntax

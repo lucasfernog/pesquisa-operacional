@@ -2,7 +2,7 @@
 
 namespace PNL_Mono_Variável.Math
 {
-    class NewtonStep : Step
+    public class NewtonStep : Step
     {
         [DisplayName("x0")]
         public double PreviousX { get; set; }
