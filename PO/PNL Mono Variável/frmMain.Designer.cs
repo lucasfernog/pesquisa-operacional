@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.grpFunction = new System.Windows.Forms.GroupBox();
+            this.lblEpsilon = new System.Windows.Forms.Label();
+            this.txtEpsilon = new System.Windows.Forms.TextBox();
             this.lblB = new System.Windows.Forms.Label();
             this.txtB = new System.Windows.Forms.TextBox();
             this.lblA = new System.Windows.Forms.Label();
@@ -46,8 +48,6 @@
             this.rdbGoldenSection = new System.Windows.Forms.RadioButton();
             this.rdbDichotomicSearch = new System.Windows.Forms.RadioButton();
             this.rdbUniformSearch = new System.Windows.Forms.RadioButton();
-            this.lblEpsilon = new System.Windows.Forms.Label();
-            this.txtEpsilon = new System.Windows.Forms.TextBox();
             this.grpFunction.SuspendLayout();
             this.grpButtons.SuspendLayout();
             this.grpMethod.SuspendLayout();
@@ -72,6 +72,25 @@
             this.grpFunction.TabIndex = 19;
             this.grpFunction.TabStop = false;
             this.grpFunction.Text = "Função";
+            // 
+            // lblEpsilon
+            // 
+            this.lblEpsilon.AutoSize = true;
+            this.lblEpsilon.Location = new System.Drawing.Point(569, 51);
+            this.lblEpsilon.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.lblEpsilon.Name = "lblEpsilon";
+            this.lblEpsilon.Size = new System.Drawing.Size(19, 17);
+            this.lblEpsilon.TabIndex = 36;
+            this.lblEpsilon.Text = "ε =";
+            this.lblEpsilon.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblEpsilon.UseCompatibleTextRendering = true;
+            // 
+            // txtEpsilon
+            // 
+            this.txtEpsilon.Location = new System.Drawing.Point(595, 49);
+            this.txtEpsilon.Name = "txtEpsilon";
+            this.txtEpsilon.Size = new System.Drawing.Size(51, 20);
+            this.txtEpsilon.TabIndex = 35;
             // 
             // lblB
             // 
@@ -259,25 +278,6 @@
             this.rdbUniformSearch.Text = "Busca Uniforme";
             this.rdbUniformSearch.UseVisualStyleBackColor = true;
             // 
-            // lblEpsilon
-            // 
-            this.lblEpsilon.AutoSize = true;
-            this.lblEpsilon.Location = new System.Drawing.Point(569, 51);
-            this.lblEpsilon.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.lblEpsilon.Name = "lblEpsilon";
-            this.lblEpsilon.Size = new System.Drawing.Size(19, 17);
-            this.lblEpsilon.TabIndex = 36;
-            this.lblEpsilon.Text = "ε =";
-            this.lblEpsilon.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblEpsilon.UseCompatibleTextRendering = true;
-            // 
-            // txtEpsilon
-            // 
-            this.txtEpsilon.Location = new System.Drawing.Point(595, 49);
-            this.txtEpsilon.Name = "txtEpsilon";
-            this.txtEpsilon.Size = new System.Drawing.Size(51, 20);
-            this.txtEpsilon.TabIndex = 35;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -287,6 +287,7 @@
             this.Controls.Add(this.grpButtons);
             this.Controls.Add(this.grpFunction);
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Programação Não Linear Monovariável";
             this.grpFunction.ResumeLayout(false);
             this.grpFunction.PerformLayout();

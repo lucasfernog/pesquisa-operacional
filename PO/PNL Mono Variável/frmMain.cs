@@ -2,6 +2,7 @@
 using PNL_Mono_Variável.Public;
 using PNL_Mono_Variável.Math;
 using PNL_Mono_Variável.Response;
+using PNL_Mono_Variável.UniformSearch;
 using System.Windows.Forms;
 
 namespace PNL_Mono_Variável
@@ -77,7 +78,16 @@ namespace PNL_Mono_Variável
                     IResponse response = null;
                     String function = txtFunction.Text;
 
-                    if (rdbGoldenSection.Checked)
+                    if (rdbUniformSearch.Checked)
+                    {
+                        frmUniformSearchDelta formDelta = new frmUniformSearchDelta();
+                        formDelta.Save += new OnSaveEventHandler(delegate (object eventSender, OnSaveEventArgs args)
+                        {
+                            response = Math.UniformSearch.eval(function, a, b, args.Delta, tolerance);
+                        });
+                        formDelta.ShowDialog();
+                    }
+                    else if (rdbGoldenSection.Checked)
                     {
                         response = GoldenSection.eval(function, a, b, tolerance);
                     }
@@ -98,16 +108,22 @@ namespace PNL_Mono_Variável
                         MessageBox.Show("Selecione um método.");
                         return;
                     }
-                    
-                    frmResponse frmResponse = new frmResponse();
-                    frmResponse.Response = response;
-                    frmResponse.ShowDialog();
+
+                    if (response != null)
+                        showResponse(response);
                 }
                 catch (ArgumentException argumentException)
                 {
                     MessageBox.Show(argumentException.Message);
                 }
             }
+        }
+
+        private void showResponse(IResponse response)
+        {
+            frmResponse frmResponse = new frmResponse();
+            frmResponse.Response = response;
+            frmResponse.ShowDialog();
         }
     }
 }

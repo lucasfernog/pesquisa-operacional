@@ -115,6 +115,7 @@
             this.Controls.Add(this.dgvSteps);
             this.Controls.Add(this.grpPoint);
             this.Name = "frmResponse";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Resultado";
             this.Load += new System.EventHandler(this.frmResponse_Load);
             this.grpPoint.ResumeLayout(false);
