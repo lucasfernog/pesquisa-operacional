@@ -1,6 +1,6 @@
-﻿namespace PNL_Mono_Variável.UniformSearch
+﻿namespace PNL_Mono_Variável.Util
 {
-    partial class frmUniformSearchDelta
+    partial class frmDelta
     {
         /// <summary>
         /// Required designer variable.
@@ -42,7 +42,7 @@
             this.grpDelta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpDelta.Location = new System.Drawing.Point(0, 0);
             this.grpDelta.Name = "grpDelta";
-            this.grpDelta.Size = new System.Drawing.Size(224, 75);
+            this.grpDelta.Size = new System.Drawing.Size(188, 74);
             this.grpDelta.TabIndex = 20;
             this.grpDelta.TabStop = false;
             this.grpDelta.Text = "Delta";
@@ -63,30 +63,30 @@
             // 
             this.txtDelta.Location = new System.Drawing.Point(31, 19);
             this.txtDelta.Name = "txtDelta";
-            this.txtDelta.Size = new System.Drawing.Size(187, 20);
+            this.txtDelta.Size = new System.Drawing.Size(155, 20);
             this.txtDelta.TabIndex = 31;
             // 
             // btnCalc
             // 
             this.btnCalc.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnCalc.Location = new System.Drawing.Point(0, 52);
+            this.btnCalc.Location = new System.Drawing.Point(0, 51);
             this.btnCalc.Name = "btnCalc";
-            this.btnCalc.Size = new System.Drawing.Size(224, 23);
+            this.btnCalc.Size = new System.Drawing.Size(188, 23);
             this.btnCalc.TabIndex = 21;
             this.btnCalc.Text = "Calcular";
             this.btnCalc.UseVisualStyleBackColor = true;
             this.btnCalc.Click += new System.EventHandler(this.btnCalc_Click);
             // 
-            // frmUniformSearchDelta
+            // frmDelta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(224, 75);
+            this.ClientSize = new System.Drawing.Size(188, 74);
             this.Controls.Add(this.btnCalc);
             this.Controls.Add(this.grpDelta);
-            this.Name = "frmUniformSearchDelta";
+            this.Name = "frmDelta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Busca Uniforme";
+            this.Text = "Passo";
             this.grpDelta.ResumeLayout(false);
             this.grpDelta.PerformLayout();
             this.ResumeLayout(false);

@@ -2,7 +2,7 @@
 using PNL_Mono_Variável.Public;
 using PNL_Mono_Variável.Math;
 using PNL_Mono_Variável.Response;
-using PNL_Mono_Variável.UniformSearch;
+using PNL_Mono_Variável.Util;
 using System.Windows.Forms;
 
 namespace PNL_Mono_Variável
@@ -78,27 +78,42 @@ namespace PNL_Mono_Variável
                     IResponse response = null;
                     String function = txtFunction.Text;
 
+                    //Busca Uniforme
                     if (rdbUniformSearch.Checked)
                     {
-                        frmUniformSearchDelta formDelta = new frmUniformSearchDelta();
+                        frmDelta formDelta = new frmDelta();
                         formDelta.Save += new OnSaveEventHandler(delegate (object eventSender, OnSaveEventArgs args)
                         {
-                            response = Math.UniformSearch.eval(function, a, b, args.Delta, tolerance);
+                            response = UniformSearch.eval(function, a, b, args.Delta, tolerance);
                         });
                         formDelta.ShowDialog();
                     }
+                    //Busca dicotômica
+                    else if (rdbDichotomicSearch.Checked)
+                    {
+                        frmDelta formDelta = new frmDelta();
+                        formDelta.Save += new OnSaveEventHandler(delegate (object eventSender, OnSaveEventArgs args)
+                        {
+                            response = DichotomicSearch.eval(function, a, b, args.Delta, tolerance);
+                        });
+                        formDelta.ShowDialog();
+                    }
+                    //Seção áurea
                     else if (rdbGoldenSection.Checked)
                     {
                         response = GoldenSection.eval(function, a, b, tolerance);
                     }
+                    //Busca de Fibonacci
                     else if (rdbFibonacciSearch.Checked)
                     {
                         response = FibonacciSearch.eval(function, a, b, tolerance);
                     }
+                    //Bisseção
                     else if (rdbBisection.Checked)
                     {
                         response = Bisection.eval(function, a, b, tolerance);
                     }
+                    //Newton
                     else if (rdbNewton.Checked)
                     {
                         response = Newton.eval(function, a, b, tolerance);

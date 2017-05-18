@@ -1,21 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using PNL_Mono_Variável.Math;
 
-namespace PNL_Mono_Variável.UniformSearch
+namespace PNL_Mono_Variável.Util
 {
-    public partial class frmUniformSearchDelta : Form
+    public partial class frmDelta : Form
     {
         public event OnSaveEventHandler Save;
 
-        public frmUniformSearchDelta()
+        public frmDelta()
         {
             InitializeComponent();
         }

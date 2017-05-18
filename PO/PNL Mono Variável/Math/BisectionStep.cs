@@ -2,7 +2,7 @@
 
 namespace PNL_Mono_Variável.Math
 {
-    public class StepX : Step
+    public class BisectionStep : Step
     {
         [DisplayName("x")]
         public double X { get; set; }
@@ -16,7 +16,7 @@ namespace PNL_Mono_Variável.Math
         [DisplayName("b")]
         public double B { get; set; }
 
-        public StepX(int K, double A, double B, double X, double F1_X) 
+        public BisectionStep(int K, double A, double B, double X, double F1_X) 
         {
             this.K = K;
             this.A = A;

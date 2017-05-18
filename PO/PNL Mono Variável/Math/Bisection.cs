@@ -6,9 +6,9 @@ namespace PNL_Mono_Variável.Math
     {
         private static readonly string VARIABLE = "x";
 
-        public static Response<StepX> eval(String function, double a, double b, double tolerance)
+        public static Response<BisectionStep> eval(String function, double a, double b, double tolerance)
         {
-            Response<StepX> response = new Response<StepX>();
+            Response<BisectionStep> response = new Response<BisectionStep>();
 
             Expression expression = new Expression(function);
             expression.defineArgument(VARIABLE, 0); //definir variável apenas para ser reconhecida pelo checkSyntax
@@ -29,7 +29,7 @@ namespace PNL_Mono_Variável.Math
                 xk = (a + b) / 2;
                 derivative1_xk = Derivative.evalOrder1(expression, VARIABLE, xk, tolerance);
 
-                response.Steps.Add(new StepX(k, a, b, xk, derivative1_xk));
+                response.Steps.Add(new BisectionStep(k, a, b, xk, derivative1_xk));
 
                 if (derivative1_xk > 0)
                     b = xk;

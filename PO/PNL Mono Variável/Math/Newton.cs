@@ -54,7 +54,7 @@ namespace PNL_Mono_Variável.Math
                 response.Steps.Add(new NewtonStep(k, previousX, x));
 
                 k++;
-            } while (k != maxIt && System.Math.Abs(x - previousX) > tolerance);
+            } while (k != maxIt && System.Math.Abs(x - previousX) >= tolerance);
 
             response.X = x;
             response.FunctionValue = expression.eval(VARIABLE, x);

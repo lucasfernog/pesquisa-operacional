@@ -30,7 +30,7 @@ namespace PNL_Mono_Variável.Response
 
                 foreach (DataGridViewColumn column in dgvSteps.Columns)
                 {
-                    column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    column.SortMode = DataGridViewColumnSortMode.NotSortable;
                     column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
                     if (column.DataPropertyName == "K")
