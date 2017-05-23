@@ -19,10 +19,6 @@ namespace PNL_Mono_Variável.Math
             if (!expression.checkSyntax())
                 throw new ArgumentException(expression.getErrorMessage());
 
-            int maxIt = (int) System.Math.Ceiling(
-                System.Math.Log(GOLDEN_SECTION_NUMBER / (b - a)) / 
-                System.Math.Log(GOLDEN_SECTION_NUMBER));
-
             int k = 0;
 
             double mi = a + ONE_MINUS_GOLDEN_SECTION_NUMBER * (b - a);
@@ -62,7 +58,7 @@ namespace PNL_Mono_Variável.Math
                 }
 
                 k++;
-            } while (k < maxIt && System.Math.Abs(b - a) >= tolerance);
+            } while (System.Math.Abs(b - a) >= tolerance);
 
             response.X = (a + b) / 2;
             response.FunctionValue = expression.eval(VARIABLE, response.X);

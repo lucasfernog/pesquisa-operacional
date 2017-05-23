@@ -48,6 +48,8 @@
             this.rdbGoldenSection = new System.Windows.Forms.RadioButton();
             this.rdbDichotomicSearch = new System.Windows.Forms.RadioButton();
             this.rdbUniformSearch = new System.Windows.Forms.RadioButton();
+            this.lblDelta = new System.Windows.Forms.Label();
+            this.txtDelta = new System.Windows.Forms.TextBox();
             this.grpFunction.SuspendLayout();
             this.grpButtons.SuspendLayout();
             this.grpMethod.SuspendLayout();
@@ -55,6 +57,8 @@
             // 
             // grpFunction
             // 
+            this.grpFunction.Controls.Add(this.lblDelta);
+            this.grpFunction.Controls.Add(this.txtDelta);
             this.grpFunction.Controls.Add(this.lblEpsilon);
             this.grpFunction.Controls.Add(this.txtEpsilon);
             this.grpFunction.Controls.Add(this.lblB);
@@ -76,7 +80,7 @@
             // lblEpsilon
             // 
             this.lblEpsilon.AutoSize = true;
-            this.lblEpsilon.Location = new System.Drawing.Point(569, 51);
+            this.lblEpsilon.Location = new System.Drawing.Point(487, 49);
             this.lblEpsilon.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.lblEpsilon.Name = "lblEpsilon";
             this.lblEpsilon.Size = new System.Drawing.Size(19, 17);
@@ -87,7 +91,7 @@
             // 
             // txtEpsilon
             // 
-            this.txtEpsilon.Location = new System.Drawing.Point(595, 49);
+            this.txtEpsilon.Location = new System.Drawing.Point(513, 47);
             this.txtEpsilon.Name = "txtEpsilon";
             this.txtEpsilon.Size = new System.Drawing.Size(51, 20);
             this.txtEpsilon.TabIndex = 35;
@@ -95,7 +99,7 @@
             // lblB
             // 
             this.lblB.AutoSize = true;
-            this.lblB.Location = new System.Drawing.Point(430, 49);
+            this.lblB.Location = new System.Drawing.Point(385, 49);
             this.lblB.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.lblB.Name = "lblB";
             this.lblB.Size = new System.Drawing.Size(20, 17);
@@ -106,15 +110,15 @@
             // 
             // txtB
             // 
-            this.txtB.Location = new System.Drawing.Point(456, 47);
+            this.txtB.Location = new System.Drawing.Point(408, 47);
             this.txtB.Name = "txtB";
-            this.txtB.Size = new System.Drawing.Size(102, 20);
+            this.txtB.Size = new System.Drawing.Size(73, 20);
             this.txtB.TabIndex = 33;
             // 
             // lblA
             // 
             this.lblA.AutoSize = true;
-            this.lblA.Location = new System.Drawing.Point(300, 48);
+            this.lblA.Location = new System.Drawing.Point(283, 47);
             this.lblA.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.lblA.Name = "lblA";
             this.lblA.Size = new System.Drawing.Size(20, 17);
@@ -125,16 +129,16 @@
             // 
             // txtA
             // 
-            this.txtA.Location = new System.Drawing.Point(323, 48);
+            this.txtA.Location = new System.Drawing.Point(306, 47);
             this.txtA.Name = "txtA";
-            this.txtA.Size = new System.Drawing.Size(102, 20);
+            this.txtA.Size = new System.Drawing.Size(73, 20);
             this.txtA.TabIndex = 31;
             // 
             // txtFunction
             // 
             this.txtFunction.Location = new System.Drawing.Point(39, 48);
             this.txtFunction.Name = "txtFunction";
-            this.txtFunction.Size = new System.Drawing.Size(255, 20);
+            this.txtFunction.Size = new System.Drawing.Size(238, 20);
             this.txtFunction.TabIndex = 30;
             // 
             // lblFunction
@@ -265,6 +269,7 @@
             this.rdbDichotomicSearch.TabStop = true;
             this.rdbDichotomicSearch.Text = "Busca Dicotômica";
             this.rdbDichotomicSearch.UseVisualStyleBackColor = true;
+            this.rdbDichotomicSearch.CheckedChanged += new System.EventHandler(this.rdbUniformSearch_CheckedChanged);
             // 
             // rdbUniformSearch
             // 
@@ -277,6 +282,27 @@
             this.rdbUniformSearch.TabStop = true;
             this.rdbUniformSearch.Text = "Busca Uniforme";
             this.rdbUniformSearch.UseVisualStyleBackColor = true;
+            this.rdbUniformSearch.CheckedChanged += new System.EventHandler(this.rdbUniformSearch_CheckedChanged);
+            // 
+            // lblDelta
+            // 
+            this.lblDelta.AutoSize = true;
+            this.lblDelta.Location = new System.Drawing.Point(570, 48);
+            this.lblDelta.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.lblDelta.Name = "lblDelta";
+            this.lblDelta.Size = new System.Drawing.Size(22, 17);
+            this.lblDelta.TabIndex = 38;
+            this.lblDelta.Text = "Δ =";
+            this.lblDelta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDelta.UseCompatibleTextRendering = true;
+            // 
+            // txtDelta
+            // 
+            this.txtDelta.Enabled = false;
+            this.txtDelta.Location = new System.Drawing.Point(596, 47);
+            this.txtDelta.Name = "txtDelta";
+            this.txtDelta.Size = new System.Drawing.Size(51, 20);
+            this.txtDelta.TabIndex = 37;
             // 
             // frmMain
             // 
@@ -319,5 +345,7 @@
         private System.Windows.Forms.RadioButton rdbGoldenSection;
         private System.Windows.Forms.Label lblEpsilon;
         private System.Windows.Forms.TextBox txtEpsilon;
+        private System.Windows.Forms.Label lblDelta;
+        private System.Windows.Forms.TextBox txtDelta;
     }
 }

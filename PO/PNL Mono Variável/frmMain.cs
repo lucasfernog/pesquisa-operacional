@@ -2,7 +2,6 @@
 using PNL_Mono_Variável.Public;
 using PNL_Mono_Variável.Math;
 using PNL_Mono_Variável.Response;
-using PNL_Mono_Variável.Util;
 using System.Windows.Forms;
 
 namespace PNL_Mono_Variável
@@ -36,7 +35,7 @@ namespace PNL_Mono_Variável
                 MessageBox.Show("Informe a tolerância ε");
             else
             {
-                double a, b, tolerance;
+                double a, b, tolerance, delta;
                 Expression expression = new Expression(txtA.Text.Replace(",", "."));
                 if (!expression.checkSyntax())
                 {
@@ -62,7 +61,9 @@ namespace PNL_Mono_Variável
                             return;
                         }
                         else
+                        {
                             tolerance = expression.calculate();
+                        }
                     }
                 }
 
@@ -81,22 +82,32 @@ namespace PNL_Mono_Variável
                     //Busca Uniforme
                     if (rdbUniformSearch.Checked)
                     {
-                        frmDelta formDelta = new frmDelta();
-                        formDelta.Save += new OnSaveEventHandler(delegate (object eventSender, OnSaveEventArgs args)
+                        expression = new Expression(txtDelta.Text.Replace(",", "."));
+                        if (!expression.checkSyntax())
                         {
-                            response = UniformSearch.eval(function, a, b, args.Delta, tolerance);
-                        });
-                        formDelta.ShowDialog();
+                            MessageBox.Show(expression.getErrorMessage());
+                            return;
+                        }
+                        else
+                        {
+                            delta = expression.calculate();
+                            response = UniformSearch.eval(function, a, b, delta, tolerance);
+                        }
                     }
                     //Busca dicotômica
                     else if (rdbDichotomicSearch.Checked)
                     {
-                        frmDelta formDelta = new frmDelta();
-                        formDelta.Save += new OnSaveEventHandler(delegate (object eventSender, OnSaveEventArgs args)
+                        expression = new Expression(txtDelta.Text.Replace(",", "."));
+                        if (!expression.checkSyntax())
                         {
-                            response = DichotomicSearch.eval(function, a, b, args.Delta, tolerance);
-                        });
-                        formDelta.ShowDialog();
+                            MessageBox.Show(expression.getErrorMessage());
+                            return;
+                        }
+                        else
+                        {
+                            delta = expression.calculate();
+                            response = DichotomicSearch.eval(function, a, b, delta, tolerance);
+                        }
                     }
                     //Seção áurea
                     else if (rdbGoldenSection.Checked)
@@ -139,6 +150,11 @@ namespace PNL_Mono_Variável
             frmResponse frmResponse = new frmResponse();
             frmResponse.Response = response;
             frmResponse.ShowDialog();
+        }
+
+        private void rdbUniformSearch_CheckedChanged(object sender, EventArgs e)
+        {
+            txtDelta.Enabled = rdbUniformSearch.Checked || rdbDichotomicSearch.Checked;
         }
     }
 }
