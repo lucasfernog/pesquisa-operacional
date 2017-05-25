@@ -36,8 +36,11 @@
             this.txtFx = new System.Windows.Forms.TextBox();
             this.txtX = new System.Windows.Forms.TextBox();
             this.lblX = new System.Windows.Forms.Label();
+            this.pnlError = new System.Windows.Forms.Panel();
             this.dgvSteps = new System.Windows.Forms.DataGridView();
+            this.lblError = new System.Windows.Forms.Label();
             this.grpPoint.SuspendLayout();
+            this.pnlError.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSteps)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +53,7 @@
             this.grpPoint.Dock = System.Windows.Forms.DockStyle.Top;
             this.grpPoint.Location = new System.Drawing.Point(0, 0);
             this.grpPoint.Name = "grpPoint";
-            this.grpPoint.Size = new System.Drawing.Size(426, 50);
+            this.grpPoint.Size = new System.Drawing.Size(426, 43);
             this.grpPoint.TabIndex = 0;
             this.grpPoint.TabStop = false;
             this.grpPoint.Text = "Ponto";
@@ -98,6 +101,15 @@
             this.lblX.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblX.UseCompatibleTextRendering = true;
             // 
+            // pnlError
+            // 
+            this.pnlError.Controls.Add(this.lblError);
+            this.pnlError.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlError.Location = new System.Drawing.Point(0, 43);
+            this.pnlError.Name = "pnlError";
+            this.pnlError.Size = new System.Drawing.Size(426, 20);
+            this.pnlError.TabIndex = 4;
+            // 
             // dgvSteps
             // 
             this.dgvSteps.AllowUserToAddRows = false;
@@ -121,7 +133,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvSteps.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvSteps.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvSteps.Location = new System.Drawing.Point(0, 50);
+            this.dgvSteps.Location = new System.Drawing.Point(0, 63);
             this.dgvSteps.Name = "dgvSteps";
             this.dgvSteps.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -132,8 +144,19 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvSteps.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvSteps.Size = new System.Drawing.Size(426, 275);
-            this.dgvSteps.TabIndex = 1;
+            this.dgvSteps.Size = new System.Drawing.Size(426, 262);
+            this.dgvSteps.TabIndex = 5;
+            // 
+            // lblError
+            // 
+            this.lblError.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblError.Location = new System.Drawing.Point(0, 0);
+            this.lblError.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(426, 20);
+            this.lblError.TabIndex = 40;
+            this.lblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblError.UseCompatibleTextRendering = true;
             // 
             // frmResponse
             // 
@@ -141,6 +164,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(426, 325);
             this.Controls.Add(this.dgvSteps);
+            this.Controls.Add(this.pnlError);
             this.Controls.Add(this.grpPoint);
             this.Name = "frmResponse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -148,6 +172,7 @@
             this.Load += new System.EventHandler(this.frmResponse_Load);
             this.grpPoint.ResumeLayout(false);
             this.grpPoint.PerformLayout();
+            this.pnlError.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSteps)).EndInit();
             this.ResumeLayout(false);
 
@@ -160,6 +185,8 @@
         private System.Windows.Forms.Label lblX;
         private System.Windows.Forms.TextBox txtFx;
         private System.Windows.Forms.Label lblFx;
+        private System.Windows.Forms.Panel pnlError;
+        private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.DataGridView dgvSteps;
     }
 }

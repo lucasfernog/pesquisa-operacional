@@ -12,7 +12,7 @@ namespace PNL_Mono_Variável.Math
 
         public static Response<NewtonStep> eval(String function, double a, double b, double tolerance)
         {
-            Response< NewtonStep> response = new Response<NewtonStep>();
+            Response<NewtonStep> response = new Response<NewtonStep>();
 
             Expression expression = new Expression(function);
             expression.defineArgument(VARIABLE, 0); //definir variável apenas para ser reconhecida pelo checkSyntax
@@ -32,7 +32,10 @@ namespace PNL_Mono_Variável.Math
                 f1 = Derivative.evalOrder1(expression, VARIABLE, x);
 
                 if (Double.IsInfinity(f1) || Double.IsNaN(f1))
+                {
+                    response.error = "Método não converge, divisão por 0.";
                     break;
+                }
                 else if (f1 == 0.0f)
                 {
                     break;
@@ -40,14 +43,17 @@ namespace PNL_Mono_Variável.Math
 
                 f2 = Derivative.evalOrder2(expression, VARIABLE, x);
                 if (Double.IsInfinity(f2) || Double.IsNaN(f2))
+                {
+                    response.error = "Método não converge, divisão por 0.";
                     break;
+                }
 
                 x -= f1 / f2;
 
                 //TODO o que fazer se cair nisso na primeira iteração? erro?
                 if (Double.IsInfinity(x) || Double.IsNaN(x))
                 {
-                    x = previousX;
+                    response.error = "Método não converge, divisão por 0.";
                     break;
                 }
 

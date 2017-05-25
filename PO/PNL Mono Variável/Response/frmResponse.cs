@@ -19,6 +19,9 @@ namespace PNL_Mono_Variável.Response
             txtX.Text = Response.X.ToString();
             txtFx.Text = Response.FunctionValue.ToString();
 
+            pnlError.Visible = Response.error != string.Empty;
+            lblError.Text = Response.error;
+
             if (Response.StepsCount == 0)
             {
                 dgvSteps.Visible = false;

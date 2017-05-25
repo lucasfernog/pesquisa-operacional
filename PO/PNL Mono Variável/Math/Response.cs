@@ -8,6 +8,7 @@ namespace PNL_Mono_Variável.Math
         int StepsCount { get; }
         double X { get; set; }
         double FunctionValue { get; set; }
+        string error { get; set; }
     }
 
     public class Response<T> : IResponse where T : Step
@@ -29,6 +30,8 @@ namespace PNL_Mono_Variável.Math
         }
         public double X { get; set; }
         public double FunctionValue { get; set; }
+
+        public string error { get; set; } = string.Empty;
 
         public Response()
         {
