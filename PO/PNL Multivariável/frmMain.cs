@@ -110,7 +110,7 @@ namespace PNL_Multivariável
             }
             else if (rdbHookeAndJeeves.Checked)
             {
-
+                response = HookeAndJeeves.eval(function, x, epsilon);
             }
             else if (rdbGradient.Checked)
             {

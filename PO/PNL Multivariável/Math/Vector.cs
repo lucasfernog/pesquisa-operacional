@@ -123,6 +123,19 @@ namespace PNL_Multivariável.Math
             return System.Math.Sqrt(sum);
         }
 
+        public double norm()
+        {
+            double sum = 0;
+
+            int i = 0;
+            foreach (double item in values)
+            {
+                sum += System.Math.Pow(item, 2);
+            }
+
+            return System.Math.Sqrt(sum);
+        }
+
         public override string ToString()
         {
             StringBuilder str = new StringBuilder();

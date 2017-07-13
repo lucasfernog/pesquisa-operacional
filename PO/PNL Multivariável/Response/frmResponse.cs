@@ -17,7 +17,7 @@ namespace PNL_Multivariável.Response
         private void frmResponse_Load(object sender, EventArgs e)
         {
             txtX.Text = Response.X.ToString();
-            txtFx.Text = Response.FunctionValue.ToString();
+            txtFx.Text = Utils.round(Response.FunctionValue).ToString();
 
             pnlError.Visible = Response.error != string.Empty;
             lblError.Text = Response.error;
