@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PNL_Mono_Variável.Math
 {
-    class Expression : org.mariuszgromada.math.mxparser.Expression
+    public class Expression : org.mariuszgromada.math.mxparser.Expression
     {
         public Expression(String func) : base(func)
         {

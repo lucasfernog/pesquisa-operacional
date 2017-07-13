@@ -54,16 +54,23 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\PNL Mono Variável\Math\Derivative.cs">
+      <Link>Math\Monovariable\Derivative.cs</Link>
+    </Compile>
     <Compile Include="..\PNL Mono Variável\Math\Expression.cs">
       <Link>Math\Expression.cs</Link>
     </Compile>
-    <Compile Include="..\PNL Mono Variável\Response\frmResponse.cs">
-      <Link>Response\frmResponse.cs</Link>
-      <SubType>Form</SubType>
+    <Compile Include="..\PNL Mono Variável\Math\Newton.cs">
+      <Link>Math\Monovariable\Newton.cs</Link>
     </Compile>
-    <Compile Include="..\PNL Mono Variável\Response\frmResponse.designer.cs">
-      <Link>Response\frmResponse.designer.cs</Link>
-      <DependentUpon>frmResponse.cs</DependentUpon>
+    <Compile Include="..\PNL Mono Variável\Math\NewtonStep.cs">
+      <Link>Math\Monovariable\NewtonStep.cs</Link>
+    </Compile>
+    <Compile Include="..\PNL Mono Variável\Math\Response.cs">
+      <Link>Math\Monovariable\Response.cs</Link>
+    </Compile>
+    <Compile Include="..\PNL Mono Variável\Math\Step.cs">
+      <Link>Math\Monovariable\Step.cs</Link>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -71,8 +78,12 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Math\CoordinateDescent.cs" />
+    <Compile Include="Math\Matrix.cs" />
     <Compile Include="Math\Response.cs" />
     <Compile Include="Math\Step.cs" />
+    <Compile Include="Math\StepCoordinateDescent.cs" />
+    <Compile Include="Math\Utils.cs" />
     <Compile Include="Math\Vector.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -88,10 +99,12 @@
     <Compile Include="Public\frmHelp.Designer.cs">
       <DependentUpon>frmHelp.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="..\PNL Mono Variável\Response\frmResponse.resx">
-      <Link>Response\frmResponse.resx</Link>
+    <Compile Include="Response\frmResponse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Response\frmResponse.Designer.cs">
       <DependentUpon>frmResponse.cs</DependentUpon>
-    </EmbeddedResource>
+    </Compile>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -110,6 +123,9 @@
     <EmbeddedResource Include="Public\frmHelp.resx">
       <DependentUpon>frmHelp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Response\frmResponse.resx">
+      <DependentUpon>frmResponse.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -123,5 +139,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,13 +1,12 @@
-﻿using PNL_Multivariável.Math;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace PNL_Mono_Variável.Math
+namespace PNL_Multivariável.Math
 {
     public interface IResponse
     {
         object StepsList { get; }
         int StepsCount { get; }
-        Vector<double> X { get; set; }
+        Vector X { get; set; }
         double FunctionValue { get; set; }
         string error { get; set; }
     }
@@ -29,7 +28,7 @@ namespace PNL_Mono_Variável.Math
                 return Steps.Count;
             }
         }
-        public Vector<double> X { get; set; }
+        public Vector X { get; set; }
         public double FunctionValue { get; set; }
 
         public string error { get; set; } = string.Empty;

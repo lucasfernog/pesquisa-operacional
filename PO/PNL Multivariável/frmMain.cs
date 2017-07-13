@@ -1,6 +1,6 @@
 ﻿using PNL_Mono_Variável.Math;
-using PNL_Mono_Variável.Response;
 using PNL_Multivariável.Math;
+using PNL_Multivariável.Response;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -56,7 +56,7 @@ namespace PNL_Multivariável
             return expression;
         }
 
-        private void showResponse(IResponse response)
+        private void showResponse(Math.IResponse response)
         {
             frmResponse frm = new frmResponse()
             {
@@ -72,34 +72,41 @@ namespace PNL_Multivariável
             else if (txtEpsilon.Text == String.Empty)
                 MessageBox.Show("Informe a tolerância");
 
-            Expression function = parse(txtFunction.Text);
             double epsilon;
-
-            if (function == null)
-                return;
-
             Expression epsilonExpression = parse(txtEpsilon.Text);
             if (epsilonExpression == null)
                 return;
             epsilon = epsilonExpression.calculate();
 
-            Vector<double> x = new Vector<double>();
-            int count = grdX.RowCount, i = 0;
+            int count = grdX.RowCount, limit = count - 1, i = 0;
+            Vector x = new Vector(limit);
+            String functionExpression = txtFunction.Text.Replace(",", ".");
+            Expression function = new Expression(functionExpression);
             foreach (DataGridViewRow row in grdX.Rows)
             {
-                if (++i != count)
+                if (i != limit)
                 {
                     object value = row.Cells[0].Value;
-                    x.AddLast(value == null || value.ToString() == String.Empty ? 0 : parse(value.ToString()).calculate());
+                    x[i] = value == null || value.ToString() == String.Empty ? 0 : parse(value.ToString()).calculate();
+                    function.defineArgument("x" + (i + 1), 0);
                 }
+                i++;
             }
 
-            IResponse response = null;
+            if (!function.checkSyntax())
+            {
+                MessageBox.Show(function.getErrorMessage());
+                return;
+            }
+
+            function = new Expression(functionExpression); //reset
+
+            Math.IResponse response = null;
 
             //TODO implement
-            if (rdbConjugateGradient.Checked)
+            if (rdbCoordinateDescent.Checked)
             {
-
+                response = CoordinateDescent.eval(function, x, epsilon);
             }
             else if (rdbHookeAndJeeves.Checked)
             {
@@ -131,7 +138,7 @@ namespace PNL_Multivariável
                 return;
             }
 
-            //showResponse(response);
+            showResponse(response);
 
         }
     }
