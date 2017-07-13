@@ -29,7 +29,6 @@ namespace PNL_Multivariável
         {
             if (grdX.Columns[e.ColumnIndex].Name == "xi")
             {
-                float a = 0.0f;
                 string value = e.FormattedValue.ToString();
                 if (value != String.Empty && parse(e.FormattedValue.ToString()) == null)
                 {
@@ -114,7 +113,7 @@ namespace PNL_Multivariável
             }
             else if (rdbGradient.Checked)
             {
-
+                response = SteepestDescent.eval(function, x, epsilon);
             }
             else if (rdbNewton.Checked)
             {

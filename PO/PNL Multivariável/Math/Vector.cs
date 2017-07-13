@@ -63,6 +63,14 @@ namespace PNL_Multivariável.Math
             return subtract(v1, v2);
         }
 
+        public static Vector operator -(Vector v)
+        {
+            Vector res = new Vector(v.Count);
+            for (int i = 0, n = v.Count; i < n; i++)
+                res[i] = -v[i];
+            return res;
+        }
+
         public static Vector operator *(double m, Vector v)
         {
             return multiply(m, v);
@@ -127,7 +135,6 @@ namespace PNL_Multivariável.Math
         {
             double sum = 0;
 
-            int i = 0;
             foreach (double item in values)
             {
                 sum += System.Math.Pow(item, 2);

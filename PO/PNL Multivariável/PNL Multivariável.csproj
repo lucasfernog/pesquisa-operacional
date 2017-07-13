@@ -78,11 +78,14 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Math\Derivative.cs" />
     <Compile Include="Math\HookeAndJeeves.cs" />
     <Compile Include="Math\CoordinateDescent.cs" />
     <Compile Include="Math\Matrix.cs" />
     <Compile Include="Math\Response.cs" />
+    <Compile Include="Math\SteepestDescent.cs" />
     <Compile Include="Math\Step.cs" />
+    <Compile Include="Math\StepSteepestDescent.cs" />
     <Compile Include="Math\StepHookeAndJeeves.cs" />
     <Compile Include="Math\StepCoordinateDescent.cs" />
     <Compile Include="Math\Utils.cs" />

@@ -42,8 +42,7 @@ namespace PNL_Multivariável.Math
                 if (flag)
                 {
                     mi = Utils.lineSearch(function, x, d, epsilon);
-                    for (int j = 0; j < n; j++)
-                        x[j] += (double) mi * d[j];
+                    x += (double) mi * d;
                 }
 
                 response.Steps.Add(new StepHookeAndJeeves(k, xBeforeAdditionalStep, lambda.clone(), 
