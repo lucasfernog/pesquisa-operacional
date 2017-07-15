@@ -78,6 +78,7 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Math\ConjugateGradient.cs" />
     <Compile Include="Math\Derivative.cs" />
     <Compile Include="Math\HookeAndJeeves.cs" />
     <Compile Include="Math\CoordinateDescent.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Math\Response.cs" />
     <Compile Include="Math\SteepestDescent.cs" />
     <Compile Include="Math\Step.cs" />
+    <Compile Include="Math\StepConjugateGradient.cs" />
     <Compile Include="Math\StepNewton.cs" />
     <Compile Include="Math\StepSteepestDescent.cs" />
     <Compile Include="Math\StepHookeAndJeeves.cs" />

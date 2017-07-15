@@ -76,6 +76,49 @@ namespace PNL_Multivariável.Math
             return multiply(m, v);
         }
 
+        public static double operator *(Vector v1, Vector v2)
+        {
+            return multiply(v1, v2);
+        }
+
+        public static Vector operator *(Vector v, Matrix m)
+        {
+            return multiply(v, m);
+        }
+
+        private static double multiply(Vector v1, Vector v2)
+        {
+            if (v1.Count != v2.Count)
+                throw new InvalidOperationException("Não é possível realizar o produto escalar de vetores de dimensão diferentes.");
+            double res = 0;
+
+            for (int i = 0, n = v1.Count; i < n; i++)
+            {
+                res += v1[i] * v2[i];
+            }
+
+            return res;
+        }
+
+        private static Vector multiply(Vector v, Matrix matrix)
+        {
+            if (v.Count != matrix.n)
+                throw new InvalidOperationException("Impossível realizar multiplicação (tamanho do vetor deve ser igual ao número de colunas da matriz).");
+            
+            Vector res = new Vector(v.Count);
+
+            for (int i = 0, m = v.Count; i < m; i++)
+            {
+                res[i] = 0;
+                for (int j = 0, n = matrix.n; j < m; j++)
+                {
+                    res[i] += matrix[i, j] * v[j];
+                }
+            }
+
+            return res;
+        }
+
         private static Vector sum(Vector v1, Vector v2)
         {
             Vector res = new Vector(v1.values.Length);

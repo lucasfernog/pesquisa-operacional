@@ -121,7 +121,7 @@ namespace PNL_Multivariável
             }
             else if (rdbConjugateGradient.Checked)
             {
-
+                response = ConjugateGradient.eval(function, x, epsilon);
             }
             else if (rdbFletcherAndReeves.Checked)
             {
