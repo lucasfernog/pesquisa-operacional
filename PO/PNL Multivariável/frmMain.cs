@@ -125,7 +125,7 @@ namespace PNL_Multivariável
             }
             else if (rdbFletcherAndReeves.Checked)
             {
-
+                response = FletcherAndReeves.eval(function, x, epsilon);
             }
             else if (rdbDavidonFletcherPowell.Checked)
             {
