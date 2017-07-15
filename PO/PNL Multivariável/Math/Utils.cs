@@ -38,7 +38,7 @@ namespace PNL_Multivariável.Math
                 expressionString = expressionString.Replace("x" + ++i, "(" + round(value).ToString().Replace(",", ".") + "+x*" + round(directionEnumerator.Current).ToString().Replace(",", ".") + ")");
             }
 
-            return Newton.eval(expressionString, 0, 0, tolerance).X;
+            return PNL_Mono_Variável.Math.Newton.eval(expressionString, 0, 0, tolerance).X;
         }
     }
 }

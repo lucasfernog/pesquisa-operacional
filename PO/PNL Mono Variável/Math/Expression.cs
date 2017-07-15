@@ -17,5 +17,12 @@ namespace PNL_Mono_Variável.Math
             setArgumentValue(variable, val);
             return calculate();
         }
+
+        public double eval(String variable1, double val1, String variable2, double val2)
+        {
+            setArgumentValue(variable1, val1);
+            setArgumentValue(variable2, val2);
+            return calculate();
+        }
     }
 }

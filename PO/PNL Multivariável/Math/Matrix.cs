@@ -9,12 +9,17 @@ namespace PNL_Multivariável.Math
     public class Matrix
     {
         private double[,] values;
+        public int m { get; set; }
+        public int n { get; set; }
+
         public Matrix(int n) : this(n, n)
         {
         }
 
         public Matrix(int m, int n)
         {
+            this.m = m;
+            this.n = n;
             values = new double[m, n];
         }
 
@@ -50,6 +55,25 @@ namespace PNL_Multivariável.Math
             {
                 values[line, column] = value;
             }
+        }
+
+        public override string ToString()
+        {
+            var builder = new StringBuilder();
+
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    builder.Append(Utils.round(values[i, j]));
+                    if (j != n - 1)
+                        builder.Append(", ");
+                }
+                if (i != m - 1)
+                    builder.Append("//");
+            }
+
+            return builder.ToString();
         }
     }
 }

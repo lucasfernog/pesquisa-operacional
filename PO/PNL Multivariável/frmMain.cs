@@ -117,7 +117,7 @@ namespace PNL_Multivariável
             }
             else if (rdbNewton.Checked)
             {
-
+                response = Math.Newton.eval(function, x, epsilon);
             }
             else if (rdbConjugateGradient.Checked)
             {

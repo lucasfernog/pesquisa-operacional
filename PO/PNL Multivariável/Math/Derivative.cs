@@ -30,5 +30,35 @@ namespace PNL_Multivariável.Math
 
             return gradient;
         }
+
+        public static Matrix hessian(String functionExpression, Vector x)
+        {
+            Matrix hessian = new Matrix(x.Count);
+
+            for (int i = 0, n = x.Count; i < n; i++)
+            {
+                String variable1 = "x" + (i + 1);
+
+                for (var j = i; j < n; j++)
+                {
+                    String currentFunction = functionExpression;
+                    for (int k = 0; k < n; k++)
+                    {
+                        if (k != i && k != j)
+                            currentFunction = currentFunction.Replace("x" + (k + 1), Utils.round(x[k]).ToString().Replace(",", "."));
+                    }
+                    Expression function = new Expression(currentFunction);
+
+                    String variable2 = "x" + (j + 1);
+                    function.defineArgument(variable1, 0);
+                    if (variable2 != variable1)
+                        function.defineArgument(variable2, 0);
+
+                    hessian[i, j] = hessian[j, i] = PNL_Mono_Variável.Math.Derivative.derivativeIJ(function, variable1, variable2, x[i], x[j]);
+                }
+            }
+
+            return hessian;
+        }
     }
 }
